@@ -1,6 +1,6 @@
 #include "../include/Pessoa.h"
 
-Pessoa::Pessoa(int diaNa, int mesNa, int anoNa, char *nome) {
+Pessoa::Pessoa(int diaNa, int mesNa, int anoNa, const char *nome) {
   Inicializa(diaNa, mesNa, anoNa, nome);
 }
 
@@ -10,7 +10,7 @@ Pessoa::Pessoa() {
 
 Pessoa::~Pessoa() {}
 
-void Pessoa::Inicializa(int diaNa, int mesNa, int anoNa, char *nome) {
+void Pessoa::Inicializa(int diaNa, int mesNa, int anoNa, const char *nome) {
   idadeP = 0;
   diaP = diaNa;
   mesP = mesNa;

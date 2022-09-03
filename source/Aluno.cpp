@@ -1,6 +1,6 @@
-#include "Aluno.h";
+#include "../include/Aluno.h"
 
-Aluno::Aluno(int diaNa, int mesNa, int anoNa, char* nome) :
+Aluno::Aluno(int diaNa, int mesNa, int anoNa, const char* nome) :
 Pessoa(diaNa, mesNa, anoNa, nome) {}
 
 Aluno::Aluno() {}

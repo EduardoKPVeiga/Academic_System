@@ -12,10 +12,10 @@ private:
   Departamento* pDptos[50];
 
 public:
-  Universidade(char *n = "");
+  Universidade(const char *n = "");
   ~Universidade();
 
-  void setNome(char *n);
+  void setNome(const char *n);
   char *getNome();
 
   void setDepartamento(Departamento* pdep, int ctd);

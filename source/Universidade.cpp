@@ -1,13 +1,13 @@
 #include "../include/Universidade.h"
 
-Universidade::Universidade(char *n) {
+Universidade::Universidade(const char *n) {
     strcpy(nome, n);
     for(int i = 0; i < 50; i++) { pDptos[i] = NULL; }
 }
 
 Universidade::~Universidade() {}
 
-void Universidade::setNome(char *n) {
+void Universidade::setNome(const char *n) {
     strcpy(nome, n);
 }
 

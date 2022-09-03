@@ -16,10 +16,10 @@ protected:
   Departamento* pDptoFiliado;
 
 public:
-  Pessoa(int diaNa, int mesNa, int anoNa, char *nome = "");
+  Pessoa(int diaNa, int mesNa, int anoNa, const char *nome = "");
   Pessoa();
   ~Pessoa();
-  void Inicializa(int diaNa, int mesNa, int anoNa, char *nome = "");
+  void Inicializa(int diaNa, int mesNa, int anoNa, const char *nome = "");
 
 /* ----- Idade ----- */
   void Calc_Idade(int diaAT, int mesAT, int anoAT);
