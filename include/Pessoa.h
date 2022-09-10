@@ -12,8 +12,6 @@ class Pessoa {
 protected:
   int diaP, mesP, anoP, idadeP, id;
   char nomeP[30];
-  Universidade *pUnivFiliado;
-  Departamento* pDptoFiliado;
 
 public:
   Pessoa(int diaNa, int mesNa, int anoNa, const char *nome = "");

@@ -2,10 +2,12 @@
 
 Universidade::Universidade(const char *n) {
     strcpy(nome, n);
-    for(int i = 0; i < 50; i++) { pDptos[i] = NULL; }
+    for(int i = 0; i < 50; i++) {
+        pDptos[i] = NULL;
+    }
 }
 
-Universidade::~Universidade() {}
+Universidade::~Universidade() { }
 
 void Universidade::setNome(const char *n) {
     strcpy(nome, n);

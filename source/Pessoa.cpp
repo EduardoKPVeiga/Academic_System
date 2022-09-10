@@ -11,12 +11,12 @@ Pessoa::Pessoa() {
 Pessoa::~Pessoa() {}
 
 void Pessoa::Inicializa(int diaNa, int mesNa, int anoNa, const char *nome) {
+  id = -1;
   idadeP = 0;
   diaP = diaNa;
   mesP = mesNa;
   anoP = anoNa;
   strcpy(nomeP, nome);
-  *pUnivFiliado = 0;
 }
 
 void Pessoa::Calc_Idade(int diaAT, int mesAT, int anoAT) {

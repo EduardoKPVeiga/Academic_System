@@ -1,19 +1,26 @@
 #pragma once
 #include "Departamento.h"
+#include "elements/ElAluno.h"
+#include "lists/ListaAlunos.h"
 
 class Disciplina {
 private:
     int id;
     char nome[150];
     char area_conhecimento[150];
+    // int numero_alunos;
+    // int cont_alunos;
     Departamento* pDeptoAssociado;
+    ListaAlunos ObjLAlunos;
+    // ElAluno *pAlunoPrim;
+    // ElAluno *pAlunoAtual;
 
 public:
-    Disciplina(const char* ac = "");
+    Disciplina(int na = 45, const char* ac = "");
     ~Disciplina();
 
-    Disciplina* pProx;
-    Disciplina* pAnte;
+    // Disciplina* pProx;
+    // Disciplina* pAnte;
 
     void setId(int n);
     int getId();
@@ -23,4 +30,8 @@ public:
 
     void setDepartamento(Departamento* pdpto);
     Departamento* getDepartamento();
+
+    void setAluno(Aluno* pa);
+    void listeAlunos();
+    void listeAlunos2();
 };

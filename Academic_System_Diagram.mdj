@@ -4577,6 +4577,33 @@
 							"target": {
 								"$ref": "AAAAAAGC0Mgl/R6GfB4="
 							}
+						},
+						{
+							"_type": "UMLAssociation",
+							"_id": "AAAAAAGDE5bopFOPwx0=",
+							"_parent": {
+								"$ref": "AAAAAAGC9Ke0oJjmBrI="
+							},
+							"end1": {
+								"_type": "UMLAssociationEnd",
+								"_id": "AAAAAAGDE5bopFOQMGk=",
+								"_parent": {
+									"$ref": "AAAAAAGDE5bopFOPwx0="
+								},
+								"reference": {
+									"$ref": "AAAAAAGC9Ke0oJjmBrI="
+								}
+							},
+							"end2": {
+								"_type": "UMLAssociationEnd",
+								"_id": "AAAAAAGDE5bopFOR65I=",
+								"_parent": {
+									"$ref": "AAAAAAGDE5bopFOPwx0="
+								},
+								"reference": {
+									"$ref": "AAAAAAGC9Ke0oJjmBrI="
+								}
+							}
 						}
 					],
 					"attributes": [

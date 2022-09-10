@@ -4,16 +4,22 @@
 
 Departamento::Departamento(const char* n) {
     strcpy(nome, n);
-    pDisciplPrim = NULL;
-    pDisciplAtual = NULL;
+    pObjLDisciplinas = new ListaDisciplinas(-1, "");
+    pObjLDisciplinas->setNome(n);
+    
+    // pDisciplPrim = NULL;
+    // pDisciplAtual = NULL;
 }
 
-Departamento::~Departamento() { }
+Departamento::~Departamento() {
+    if(pObjLDisciplinas) {
+        delete pObjLDisciplinas;
+    }
+}
 
 void Departamento::setNome(const char* n) {
     strcpy(nome, n);
-    pDisciplPrim = NULL;
-    pDisciplAtual = NULL;
+    pObjLDisciplinas->setNome(n);
 }
 
 char* Departamento::getNome() {
@@ -28,34 +34,40 @@ Universidade* Departamento::getUniversidade() {
     return pUniv;
 }
 
-void Departamento::incluaDisciplina(Disciplina* pd) {
-    if ( pDisciplPrim == NULL ) {
-        pDisciplPrim = pd;
-        pDisciplAtual = pd;
-    }
-    else {
-        pDisciplAtual->pProx = pd;
-        pd->pAnte = pDisciplAtual;
-        pDisciplAtual = pd;
-    }
+void Departamento::incluaDisciplina(Disciplina* pdi) {
+    pObjLDisciplinas->incluaDisciplina(pdi);
+
+    // if ( pDisciplPrim == NULL ) {
+    //     pDisciplPrim = pd;
+    //     pDisciplAtual = pd;
+    // }
+    // else {
+    //     pDisciplAtual->pProx = pd;
+    //     pd->pAnte = pDisciplAtual;
+    //     pDisciplAtual = pd;
+    // }
 }
 
 void Departamento::listeDisciplinas() {
-    Disciplina* pAux;
-    pAux = pDisciplPrim;
+    pObjLDisciplinas->listeDisciplinas();
 
-    while ( pAux != NULL ) {
-        cout << " A disciplina " << pAux->getNome() << "pertence ao Departamento" << nome << endl;
-        pAux = pAux->pProx;
-    }
+    // Disciplina* pAux;
+    // pAux = pDisciplPrim;
+
+    // while ( pAux != NULL ) {
+    //     cout << " A disciplina " << pAux->getNome() << "pertence ao Departamento" << nome << endl;
+    //     pAux = pAux->pProx;
+    // }
 }
 
 void Departamento::listeDisciplinas2() {
-    Disciplina* pAux;
-    pAux = pDisciplAtual;
+    pObjLDisciplinas->listeDisciplinas2();
 
-    while ( pAux != NULL ) {
-        cout << " A disciplina " << pAux->getNome() << "pertence ao Departamento" << nome << endl;
-        pAux = pAux->pAnte;
-    }
+    // Disciplina* pAux;
+    // pAux = pDisciplAtual;
+
+    // while ( pAux != NULL ) {
+    //     cout << " A disciplina " << pAux->getNome() << "pertence ao Departamento" << nome << endl;
+    //     pAux = pAux->pAnte;
+    // }
 }

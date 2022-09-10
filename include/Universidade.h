@@ -9,6 +9,7 @@ using std::endl;
 class Universidade {
 private:
   char nome[130];
+  int indice;
   Departamento* pDptos[50];
 
 public:
