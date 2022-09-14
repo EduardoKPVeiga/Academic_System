@@ -3,6 +3,7 @@
 #include "lists/ListaDepartamentos.h"
 #include "lists/ListaDisciplinas.h"
 #include "lists/ListaAlunos.h"
+#include "lists/ListaUniversidades.h"
 #include <time.h>
 #include <windows.h>
 
@@ -17,7 +18,7 @@ private:
 
   Pessoa Christiano, Diego;
 
-  Departamento MatematicaUTFPR, FisicaUTFPR, TecnologiaUTFPR, DAELN, FisicaPrinceton, MatematicaPrinceton, FisicaCambridge, MatematicaCambridge;
+  Departamento MatematicaUTFPR, FisicaUTFPR, TecnologiaUTFPR, EletronicaUTFPR, FisicaPrinceton, MatematicaPrinceton, FisicaCambridge, MatematicaCambridge;
 
   Professor Simao, Einstein, Newton;
 
@@ -25,10 +26,10 @@ private:
 
   Aluno AAA, BBB, CCC, DDD, EEE;
 
-  // ListaUniversidade LUniversidade;
+  ListaUniversidades LUniversidades;
   ListaDepartamentos LDepartamentos;
   ListaDisciplinas LDisciplinas;
-  // ListaAlunos LAlunos;
+  ListaAlunos LAlunos;
 
   int diaAtual;
   int mesAtual;
@@ -46,11 +47,20 @@ public:
   void InicializaAlunos();
   void InicializaDisciplinas();
 
+  void Executar();
+
   void CalcIdadeProfs();
   void UnivOndeProfsTrabalham();
   void DepOndeProfsTrabalham();
   void ListeDiscDeptos();
+  void ListeAlunosDisc();
   //void ListeDepPorUniv();
 
-  void Executar();
+  void CadDisciplina();
+	void CadDepartamento();
+	void CadUniversidade();
+
+	void Menu();
+	void MenuCad();
+	void MenuExe();
 };

@@ -1,7 +1,7 @@
 #include "../include/Aluno.h"
 
-Aluno::Aluno(int id, int diaNa, int mesNa, int anoNa, const char* nome) :
-Pessoa(id, diaNa, mesNa, anoNa, nome) { }
+Aluno::Aluno(int diaNa, int mesNa, int anoNa, const char* nome) :
+Pessoa(diaNa, mesNa, anoNa, nome) { }
 
 Aluno::Aluno(int i) :
 Pessoa(i),

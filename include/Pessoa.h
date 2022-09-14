@@ -14,11 +14,11 @@ protected:
   char nomeP[30];
 
 public:
-  Pessoa(int i, int diaNa, int mesNa, int anoNa, const char *nome = "");
+  Pessoa(int diaNa, int mesNa, int anoNa, const char *nome = "");
   Pessoa(int i);
   Pessoa();
   ~Pessoa();
-  void Inicializa(int id, int diaNa, int mesNa, int anoNa, const char *nome = "");
+  void Inicializa(int diaNa, int mesNa, int anoNa, const char *nome = "");
 
 /* ----- Idade ----- */
   void Calc_Idade(int diaAT, int mesAT, int anoAT);

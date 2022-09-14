@@ -1,8 +1,14 @@
 #include "../../include/elements/ElAluno.h"
 
-ElAluno::ElAluno() { }
+ElAluno::ElAluno() {
+   pProx = NULL;
+   pAnte = NULL;
+}
 
-ElAluno::~ElAluno() { }
+ElAluno::~ElAluno() {
+   pProx = NULL;
+   pAnte = NULL;
+}
 
 void ElAluno::setAluno(Aluno *pa) {
    pAluno = pa; 

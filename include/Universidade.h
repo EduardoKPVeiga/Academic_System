@@ -21,7 +21,7 @@ public:
   void setNome(const char *n);
   char *getNome();
 
-  void setDepartamento(Departamento* pdep, int ctd);
+  void setDepartamento(Departamento* pdep);
   void listeDepartamentos();
   void listeDepartamentos2();
 

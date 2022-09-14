@@ -12,7 +12,7 @@ private:
     ElDepartamento* pElDepartamentoAtual;
 
 public:
-    ListaDepartamentos();
+    ListaDepartamentos(int nd = 1000, const char* n = "");
     ~ListaDepartamentos();
 
     void setNome(const char* n);
