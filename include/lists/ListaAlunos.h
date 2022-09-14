@@ -2,11 +2,11 @@
 
 #include "../elements/ElAluno.h"
 
-class ElAluno {
+class ListaAlunos {
 private:
     int cont_alunos;
     int numero_alunos;
-    char* nome[150];
+    char nome[150];
 
     ElAluno* pElAlunosPrim;
     ElAluno* pElAlunosAtual;

@@ -1,24 +1,34 @@
 #pragma once
 #include "Professor.h"
-#include "Universidade.h"
-#include "Aluno.h"
-#include "Disciplina.h"
+#include "lists/ListaDepartamentos.h"
+#include "lists/ListaDisciplinas.h"
+#include "lists/ListaAlunos.h"
 #include <time.h>
 #include <windows.h>
 
 class Principal {
 private:
-  Pessoa Christiano, Diego;
 
-  Professor Simao, Einstein, Newton;
+  int cont_idDisc;
+  int cont_idDepart;
+  int cont_idAluno;
 
   Universidade UTFPR, Princeton, Cambridge;
 
+  Pessoa Christiano, Diego;
+
   Departamento MatematicaUTFPR, FisicaUTFPR, TecnologiaUTFPR, DAELN, FisicaPrinceton, MatematicaPrinceton, FisicaCambridge, MatematicaCambridge;
+
+  Professor Simao, Einstein, Newton;
 
   Disciplina Computacao1_2006, Introd_Alg_2007, Computacao2_2007, Metodos2_2007;
 
   Aluno AAA, BBB, CCC, DDD, EEE;
+
+  // ListaUniversidade LUniversidade;
+  ListaDepartamentos LDepartamentos;
+  ListaDisciplinas LDisciplinas;
+  // ListaAlunos LAlunos;
 
   int diaAtual;
   int mesAtual;

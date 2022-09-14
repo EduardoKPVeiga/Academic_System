@@ -4,12 +4,12 @@
 
 class Aluno : public Pessoa {
 private:
-    int id;
+    // int id;
     int RA;
     Departamento*	DeptoAssociado;
 
 public:
-    Aluno(int diaNa, int mesNa, int anoNa, const char* nome = "");
+    Aluno(int id, int diaNa, int mesNa, int anoNa, const char* nome = "");
     Aluno(int i);
     Aluno();
     ~Aluno();
@@ -20,6 +20,6 @@ public:
     void setDepartamento(Departamento* d);
     Departamento* getDepartamento();
 
-    void setId(int i);
-    int getId();
+    // void setId(int i);
+    // int getId();
 };

@@ -1,4 +1,4 @@
-#include "../include/ElDisciplina.h"
+#include "../../include/elements/ElDisciplina.h"
 
 ElDisciplina::ElDisciplina( ) {
     pProx = NULL;

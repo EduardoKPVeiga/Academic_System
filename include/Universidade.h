@@ -1,7 +1,7 @@
 #pragma once
 #include <string.h>
 #include <iostream>
-#include "Departamento.h"
+#include "lists/ListaDepartamentos.h"
 
 using std::cout;
 using std::endl;
@@ -9,8 +9,10 @@ using std::endl;
 class Universidade {
 private:
   char nome[130];
-  int indice;
-  Departamento* pDptos[50];
+  ListaDepartamentos ObjLDepartamentos;
+
+  // int indice;
+  // Departamento* pDptos[50];
 
 public:
   Universidade(const char *n = "");
@@ -20,5 +22,8 @@ public:
   char *getNome();
 
   void setDepartamento(Departamento* pdep, int ctd);
-  void imprimeDptos();
+  void listeDepartamentos();
+  void listeDepartamentos2();
+
+  // void imprimeDptos();
 };

@@ -1,7 +1,7 @@
 #pragma once
 #include <string.h>
 #include <iostream>
-#include "lists/ListaDisciplinas.h"
+// #include "lists/ListaDisciplinas.h"
 
 using std::cin;
 using std::cout;
@@ -9,6 +9,7 @@ using std::endl;
 
 class Universidade;
 class Disciplina;
+class ListaDisciplinas;
 
 class Departamento{
 private:
