@@ -1,6 +1,5 @@
 make --dry-run --always-make --keep-going --print-directory
 make: Entering directory `c:/Projects/2022/academicSystem'
 g++ ./source/* -o academicSystem
- 
 make: Leaving directory `c:/Projects/2022/academicSystem'
  

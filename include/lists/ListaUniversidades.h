@@ -13,7 +13,7 @@ private:
     ElUniversidade *pElUniversidadeAtual;
 public:
 
-	ListaUniversidades(int nu = 1000, char* n = "");
+	ListaUniversidades(int nu = 1000, const char* n = "");
 	~ListaUniversidades();
 	void incluaUniversidade(Universidade* pu);
     void listeUniversidades();

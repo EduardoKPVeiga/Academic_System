@@ -1,6 +1,6 @@
 #include "../../include/lists/ListaUniversidades.h"
 
-ListaUniversidades::ListaUniversidades(int nu, char* n)
+ListaUniversidades::ListaUniversidades(int nu, const char* n)
 {
 	numero_univ = nu;
 	cont_univ	  = 0;           

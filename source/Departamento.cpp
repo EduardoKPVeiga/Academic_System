@@ -1,7 +1,7 @@
 #include "../include/Departamento.h"
 #include "../include/Universidade.h"
 #include "../include/Disciplina.h"
-#include "lists/ListaDisciplinas.h"     
+#include "../include/lists/ListaDisciplinas.h"     
 
 Departamento::Departamento(const char* n) {
     strcpy(nome, n);

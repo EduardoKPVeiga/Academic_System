@@ -8,25 +8,29 @@ private:
     int id;
     char nome[150];
     char area_conhecimento[150];
-    int numero_alunos;
-    int cont_alunos;
+    // int numero_alunos;
+    // int cont_alunos;
     Departamento* pDeptoAssociado;
-    // ListaAlunos ObjLAlunos;
-    ElAluno *pAlunoPrim;
-    ElAluno *pAlunoAtual;
+    ListaAlunos ObjLAlunos;
+    // ElAluno *pAlunoPrim;
+    // ElAluno *pAlunoAtual;
 
 public:
-    Disciplina(int na = 45, const char* ac = "");
+    Disciplina(int i, const char* ac = "");
+    Disciplina();
     ~Disciplina();
 
-    Disciplina* pProx;
-    Disciplina* pAnte;
+    // Disciplina* pProx;
+    // Disciplina* pAnte;
 
-    void setId(int n);
+    void setId(int i);
     int getId();
 
     void setNome(const char* n);
     char* getNome();
+
+    void setAreaConhecimento(const char* ac);
+    char* getAreaConhecimento();
 
     void setDepartamento(Departamento* pdpto);
     Departamento* getDepartamento();

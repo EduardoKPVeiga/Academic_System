@@ -1,10 +1,15 @@
 #include "../include/Principal.h"
 
 Principal::Principal() :
+cont_idAluno(0),
+cont_idDepart(0),
+cont_idDisc(0),
+
 Simao(),
 Einstein(),
 Newton()
 {
+
   // Christiano.Inicializa(17, 8, 1989, "Zé Maria");
   // Diego.Inicializa(6, 10, 1989, "Diego");
   // Simao.Inicializa(3, 10, 1976, "Jean Simao");
@@ -253,6 +258,66 @@ void Principal::CadUniversidade() {
 	LUniversidades.incluaUniversidade(univ);
 }
 
+void Principal::CadAluno() {
+  char	nomeAluno[150];
+	int		ra;
+	Aluno*	pal;
+
+	cout << "Qual o nome do aluno. " << endl;
+	cin  >> nomeAluno;
+
+	cout << "Qual o RA do aluno."	<< endl;
+	cin  >> ra;
+
+  pal = new Aluno(cont_idAluno++);
+	pal->setNome(nomeAluno);
+	pal->setRA(ra);
+
+	LAlunos.incluaAluno(pal);
+}
+
+void Principal::GravarTudo() {
+  GravarAlunos();
+  GravarDepartamentos();
+  GravarDisciplinas();
+  GravarProfessores();
+}
+
+void Principal::GravarUniversidades() {}
+
+void Principal::GravarDepartamentos() {}
+
+void Principal::GravarDisciplinas() {
+  LDisciplinas.graveDisciplinas();
+}
+
+void Principal::GravarAlunos() {
+	LAlunos.graveAlunos();
+}
+
+void Principal::GravarProfessores() {}
+
+void Principal::RecuperarTudo() {
+  RecuperarAlunos();
+  RecuperarDepartamentos();
+  RecuperarDisciplinas();
+  RecuperarProfessores();
+}
+
+void Principal::RecuperarUniversidades() {}
+
+void Principal::RecuperarDepartamentos() {}
+
+void Principal::RecuperarDisciplinas() {
+  LDisciplinas.recupereDisciplinas();
+}
+
+void Principal::RecuperarAlunos() {
+	LAlunos.recupereAlunos();
+}
+
+void Principal::RecuperarProfessores() {}
+
 void Principal::MenuCad() {
   int op = -1;
 
@@ -331,6 +396,96 @@ void Principal::MenuExe() {
       }
     }
   }
+}
+
+void Principal::MenuGravar() {
+	int op = -1; 
+  while (op != 6) {
+		system("cls");
+    cout << "  Informe sua op��o:			"	<< endl;
+		cout << "  0 - Gravar Tudo.				"	<< endl;
+    cout << "  1 - Gravar Universidades.	"	<< endl;
+    cout << "  2 - Gravar Departamentos.	"	<< endl;
+		cout << "  3 - Gravar Disciplinas.		"	<< endl;
+		cout << "  4 - Gravar Alunos.			"	<< endl;
+		cout << "  5 - Gravar Professores.		"	<< endl;
+    cout << "  6 � Sair.					"	<< endl;
+    cin >> op;
+
+    switch (op) {
+			case 0: {	GravarTudo(); }
+        break;
+
+      case 1: {	GravarUniversidades(); }
+        break;
+
+      case 2: {	GravarDepartamentos(); }
+				break;
+
+			case 3: {	GravarDisciplinas(); }
+				break;
+
+			case 4: {	GravarAlunos(); }
+        break;
+
+			case 5: {	GravarProfessores(); }
+				break;
+
+			case 6: {	cout << " FIM " << endl; }
+        break;
+
+      default: {
+        cout << "Op��o Inv�lida - Pressione uma tecla." << endl;
+        getchar(); 
+      }
+    }
+  }	
+}
+
+void Principal::MenuRecuperar() {
+	int op = -1;
+    
+  while (op != 6) {
+		system("cls");
+
+    cout << "  Informe sua op��o:			"	<< endl;
+		cout << "  0 - Recuperar Tudo.			"	<< endl;
+    cout << "  1 - Recuperar Universidades.	"	<< endl;
+    cout << "  2 - Recuperar Departamentos.	"	<< endl;
+		cout << "  3 - Recuperar Disciplinas.	"	<< endl;
+		cout << "  4 - Recuperar Alunos.		"	<< endl;
+		cout << "  5 - Recuperar Professores.	"	<< endl;
+    cout << "  6 � Sair.					"	<< endl;
+    cin >> op;
+
+    switch (op) {
+			case 0: {	RecuperarTudo(); }
+        break;
+
+      case 1: {	RecuperarUniversidades(); }
+        break;
+
+      case 2: {	RecuperarDepartamentos(); }
+				break;
+
+			case 3: {	RecuperarDisciplinas(); }
+				break;
+
+			case 4: {	RecuperarAlunos(); }
+				break;
+
+			case 5: {	RecuperarProfessores(); }
+				break;
+
+			case 6: {	cout << " FIM " << endl; }
+        break;
+
+      default: {
+        cout << "Op��o Inv�lida - Pressione uma tecla." << endl;
+        getchar();
+      }
+    }
+  }	
 }
 
 void Principal::Menu() {

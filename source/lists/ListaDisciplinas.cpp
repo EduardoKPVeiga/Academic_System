@@ -56,6 +56,66 @@ void ListaDisciplinas::incluaDisciplina(Disciplina* pdi) {
     }
 }
 
+void ListaDisciplinas::graveDisciplinas() {
+	ofstream GravacaoDisciplinas ("disciplinas.dat", ios::out);
+
+	if (!GravacaoDisciplinas) {
+		cerr << "Arquivo n�o pode ser aberto" << endl;
+		fflush(stdin);
+		getchar();
+	}
+
+    ElDisciplina* pauxElDisciplina = NULL;
+	Disciplina * pauxDisciplina = NULL;
+
+	pauxElDisciplina = pElDisciplinaPrim;
+
+    while (pauxElDisciplina != NULL)
+    {
+		          
+		 pauxDisciplina = pauxElDisciplina->getDisciplina();
+
+		 GravacaoDisciplinas << pauxDisciplina->getId() << ' ' 
+						<< pauxDisciplina->getNome() 
+						<< endl;
+         pauxElDisciplina = pauxElDisciplina->pProx;
+    } 
+
+	GravacaoDisciplinas.close();
+}
+
+void ListaDisciplinas::recupereDisciplinas() {
+	ifstream RecuperacaoDisciplinas("disciplinas.dat", ios::in);
+
+	if (!RecuperacaoDisciplinas) {
+		cerr << "Arquivo n�o pode ser aberto" << endl;
+		fflush(stdin);
+		getchar();
+	}
+
+    limpaLista();
+
+	while (!RecuperacaoDisciplinas.eof()) {
+		Disciplina* pauxDisciplina;
+         
+		pauxDisciplina = new Disciplina();
+
+		int id;
+        char nome[150] ;
+
+		RecuperacaoDisciplinas	>> id >> nome;
+
+		if(0 != strcmp(nome, "")) {
+			pauxDisciplina->setId(id);
+			pauxDisciplina->setNome(nome);
+		
+			incluaDisciplina(pauxDisciplina);  
+		}
+    } 
+
+	RecuperacaoDisciplinas.close();
+}
+
 void ListaDisciplinas::listeDisciplinas() {
     ElDisciplina* paux;
     paux = pElDisciplinaPrim;
@@ -74,4 +134,20 @@ void ListaDisciplinas::listeDisciplinas2() {
         cout << "Disciplina: " << paux->getNome() << ", do departamento: " << nome << "." << endl;
         paux = paux->pProx;
     }
+}
+
+void ListaDisciplinas::limpaLista() {
+   ElDisciplina *paux1, *paux2;
+   
+   paux1 = pElDisciplinaPrim;
+   paux2 = paux1;
+
+   while (paux1 != NULL)  {
+		paux2 = paux1->pProx;
+	    delete (paux1);
+        paux1 = paux2;		 
+   }
+
+   pElDisciplinaPrim  = NULL;
+   pElDisciplinaAtual = NULL;
 }

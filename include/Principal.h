@@ -59,8 +59,25 @@ public:
   void CadDisciplina();
 	void CadDepartamento();
 	void CadUniversidade();
+  void CadAluno();
 
-	void Menu();
+	void GravarTudo();
+	void GravarUniversidades();
+	void GravarDepartamentos();
+	void GravarDisciplinas();
+	void GravarAlunos();
+	void GravarProfessores();
+
+	void RecuperarTudo();
+	void RecuperarUniversidades();
+	void RecuperarDepartamentos();
+	void RecuperarDisciplinas();
+	void RecuperarAlunos();
+	void RecuperarProfessores();
+
 	void MenuCad();
 	void MenuExe();
+  void MenuGravar();
+  void MenuRecuperar();
+  void Menu();
 };

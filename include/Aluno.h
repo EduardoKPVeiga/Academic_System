@@ -9,7 +9,7 @@ private:
     Departamento*	DeptoAssociado;
 
 public:
-    Aluno(int id, int diaNa, int mesNa, int anoNa, const char* nome = "");
+    Aluno(int diaNa, int mesNa, int anoNa, const char* nome = "");
     Aluno(int i);
     Aluno();
     ~Aluno();
