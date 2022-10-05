@@ -8,6 +8,7 @@ using std::endl;
 
 class Universidade {
 private:
+  int id;
   char nome[130];
   ListaDepartamentos ObjLDepartamentos;
 
@@ -20,6 +21,9 @@ public:
 
   void setNome(const char *n);
   char *getNome();
+
+  void setId(int i);
+  int getId();
 
   void setDepartamento(Departamento* pdep);
   void listeDepartamentos();

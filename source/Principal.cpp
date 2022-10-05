@@ -281,11 +281,16 @@ void Principal::GravarTudo() {
   GravarDepartamentos();
   GravarDisciplinas();
   GravarProfessores();
+  GravarUniversidades();
 }
 
-void Principal::GravarUniversidades() {}
+void Principal::GravarUniversidades() {
+  LUniversidades.graveUniversidades();
+}
 
-void Principal::GravarDepartamentos() {}
+void Principal::GravarDepartamentos() {
+  LDepartamentos.graveDepartamentos();
+}
 
 void Principal::GravarDisciplinas() {
   LDisciplinas.graveDisciplinas();
@@ -302,11 +307,16 @@ void Principal::RecuperarTudo() {
   RecuperarDepartamentos();
   RecuperarDisciplinas();
   RecuperarProfessores();
+  RecuperarUniversidades();
 }
 
-void Principal::RecuperarUniversidades() {}
+void Principal::RecuperarUniversidades() {
+  LUniversidades.recupereUniversidades();
+}
 
-void Principal::RecuperarDepartamentos() {}
+void Principal::RecuperarDepartamentos() {
+  LDepartamentos.recupereDepartamentos();
+}
 
 void Principal::RecuperarDisciplinas() {
   LDisciplinas.recupereDisciplinas();

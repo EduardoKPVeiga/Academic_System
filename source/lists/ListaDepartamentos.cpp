@@ -62,6 +62,66 @@ void ListaDepartamentos::incluaDepto(Departamento* pde) {
     }
 }
 
+void ListaDepartamentos::graveDepartamentos() {
+    ofstream GravacaoDepartamentos ("departamentos.dat", ios::out);
+
+	if (!GravacaoDepartamentos) {
+		cerr << "Arquivo n�o pode ser aberto" << endl;
+		fflush(stdin);
+		getchar();
+	}
+
+    ElDepartamento* pauxElDepartamento = NULL;
+	Departamento * pauxDepartamento = NULL;
+
+	pauxElDepartamento = pElDepartamentoPrim;
+
+    while (pauxElDepartamento != NULL)
+    {
+		          
+		 pauxDepartamento = pauxElDepartamento->getDepartamento();
+
+		 GravacaoDepartamentos << pauxDepartamento->getId() << ' ' 
+						<< pauxDepartamento->getNome() 
+						<< endl;
+         pauxElDepartamento = pauxElDepartamento->pProx;
+    } 
+
+	GravacaoDepartamentos.close();
+}
+
+void ListaDepartamentos::recupereDepartamentos() {
+    ifstream RecuperacaoDepartamentos("departamentos.dat", ios::in);
+
+	if (!RecuperacaoDepartamentos) {
+		cerr << "Arquivo n�o pode ser aberto" << endl;
+		fflush(stdin);
+		getchar();
+	}
+
+    limpaLista();
+
+	while (!RecuperacaoDepartamentos.eof()) {
+		Departamento* pauxDepartamento;
+         
+		pauxDepartamento = new Departamento();
+
+		int id;
+        char nome[150] ;
+
+		RecuperacaoDepartamentos	>> id >> nome;
+
+		if(0 != strcmp(nome, "")) {
+			pauxDepartamento->setId(id);
+			pauxDepartamento->setNome(nome);
+		
+			incluaDepto(pauxDepartamento);  
+		}
+    } 
+
+	RecuperacaoDepartamentos.close();
+}
+
 void ListaDepartamentos::listeDepto() {
     ElDepartamento* paux;
     paux = pElDepartamentoPrim;

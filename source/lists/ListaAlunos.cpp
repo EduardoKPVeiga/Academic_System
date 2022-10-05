@@ -1,13 +1,13 @@
 #include "../../include/lists/ListaAlunos.h"
 
-ListaAlunos::ListaAlunos(int nd, const char* n) {
+ListaAlunos::ListaAlunos(int nd) {
     numero_alunos = nd;
     cont_alunos = 0;
 
     // pElAlunoAtual = NULL;
     // pElAlunoPrim = NULL;
 
-    strcpy(nome, n);
+    // strcpy(nome, n);
 }
 
 ListaAlunos::~ListaAlunos() {
@@ -29,9 +29,9 @@ ListaAlunos::~ListaAlunos() {
     limpaLista();
 }
 
-void ListaAlunos::setNome(const char* n) {
-    strcpy(nome, n);
-}
+// void ListaAlunos::setNome(const char* n) {
+//     strcpy(nome, n);
+// }
 
 void ListaAlunos::incluaAluno(Aluno* pal) {
     // if(((cont_alunos < numero_alunos) && (pal != NULL) || ((numero_alunos == -1) && (pal != NULL)))) {

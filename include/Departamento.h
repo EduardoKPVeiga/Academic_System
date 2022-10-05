@@ -13,6 +13,7 @@ class ListaDisciplinas;
 
 class Departamento{
 private:
+    int id;
     char nome[130];
     Universidade* pUniv;
     // Disciplina *pDisciplPrim;
@@ -22,6 +23,9 @@ private:
 public:
     Departamento(const char* n = "");
     ~Departamento();
+
+    void setId(int i);
+    int getId();
 
     void setNome(const char* n);
     char* getNome();

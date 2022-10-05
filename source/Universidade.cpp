@@ -15,6 +15,14 @@ char *Universidade::getNome() {
     return nome;
 }
 
+void Universidade::setId(int i) {
+    id = i;
+}
+
+int Universidade::getId() {
+    return id;
+}
+
 void Universidade::setDepartamento(Departamento* pdep) {
     ObjLDepartamentos.incluaDepto(pdep);
 }
