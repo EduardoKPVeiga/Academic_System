@@ -11,21 +11,29 @@ using std::endl;
 template<class TIPO>
 class Lista {
 private:
-    Elemento<TIPO>* pPrim;
-    Elemento<TIPO>* pAtual;
+    Elemento<TIPO>* pPrim = NULL;
+    Elemento<TIPO>* pAtual = NULL;
 
 public:
     Lista();
     ~Lista();
 
     void inicializa();
-    void limpar();
 
     bool incluaElemento(Elemento<TIPO>* pElemento);
+    bool incluaInfo(TIPO* pInfo, const char* nome);
     bool incluaInfo(TIPO* pInfo);
+    void listeInfos();
+
+    void setNome(const char* n);
+    char* getNome();
+
+    TIPO* localizar(const char* n);
 
     Elemento<TIPO>* getpPrimeiro();
     Elemento<TIPO>* getpAtual();
+
+    void limpar();
 };
 
 template<class TIPO>
@@ -67,15 +75,35 @@ bool Lista<TIPO>::incluaElemento(Elemento<TIPO>* pElemento) {
     if(NULL != pElemento) {
         if(NULL == pPrim) {
             pPrim = pElemento;
+            pPrim->setAnterior(NULL);
+            pPrim->setProximo(NULL);
             pAtual = pPrim;
         }
 
         else {
             pElemento->setAnterior(pAtual);
+            pElemento->setProximo(NULL);
             pAtual->setProximo(pElemento);
             pAtual = pAtual->getProximo();
         }
 
+        return true;
+    }
+
+    else {
+        cout << "Erro, elemento nulo na lista!" << endl;
+        return false;
+    }
+}
+
+template<class TIPO>
+bool Lista<TIPO>::incluaInfo(TIPO *pInfo, const char* nome) {
+    if(NULL != pInfo) {
+        Elemento<TIPO>* pElemento = NULL;
+        pElemento = new Elemento<TIPO>();
+        pElemento->setNome(nome);
+        pElemento->setInfo(pInfo);
+        incluaElemento(pElemento);
         return true;
     }
 
@@ -99,6 +127,32 @@ bool Lista<TIPO>::incluaInfo(TIPO *pInfo) {
         cout << "Erro, elemento nulo na lista!" << endl;
         return false;
     }
+}
+
+template<class TIPO>
+void Lista<TIPO>::listeInfos() {
+    Elemento<TIPO>* paux;
+    paux = pPrim;
+    if(NULL != pPrim) {
+        while(NULL != paux) {
+            cout << "Elemento na lista: " << paux->getNome() << endl;
+            paux = paux->getProximo();
+        }
+    }
+}
+
+template<class TIPO>
+TIPO* Lista<TIPO>::localizar(const char* n) {
+    Elemento<TIPO>* paux;
+    paux = pPrim;
+    while(paux != NULL) {
+        if(0 == strcmp(n, paux->getNome())) {
+            return paux->getInfo();
+        }
+        paux = paux->getProximo();
+    }
+
+    return NULL;
 }
 
 template<class TIPO>

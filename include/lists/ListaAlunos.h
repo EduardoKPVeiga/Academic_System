@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../elements/ElAluno.h"
+#include "../Aluno.h"
 #include "../elements/Elemento.h"
 #include "Lista.h"
 
@@ -10,27 +10,24 @@ using std::ifstream;
 
 class ListaAlunos {
 private:
-    int cont_alunos;
-    int numero_alunos;
-    // char nome[150];
-
-    // Elemento<Aluno>* pElAlunoPrim;
-    // Elemento<Aluno>* pElAlunoAtual;
+    // int cont_alunos;
+    // int numero_alunos;
 
     Lista<Aluno> LTAlunos;
 
 public:
-    ListaAlunos(int na = 40);
+    ListaAlunos();
     ~ListaAlunos();
 
-    // void setNome(const char* n);
-    void incluaAluno(Aluno* pal);
+    void incluaAluno(Aluno* pal, const char* n);
+
+    void setNome(const char* n);
+    char* getNome();
 
     void graveAlunos();
 	void recupereAlunos();
 
     void listeAlunos();
-    void listeAlunos2();
 
     void limpaLista();
 };

@@ -12,6 +12,14 @@ Pessoa() {}
 
 Aluno::~Aluno() {}
 
+void Aluno::setNome(const char* n) {
+    strcpy(nomeP, n);
+}
+
+char* Aluno::getNome() {
+    return nomeP;
+}
+
 void Aluno::setRA(int ra) {
     RA = ra;
 }
@@ -28,11 +36,15 @@ Departamento* Aluno::getDepartamento () {
 	return DeptoAssociado;
 }
 
-// void Aluno::setId(int i) {
-// 	id = i;
-// }
+void Aluno::setId(int i) {
+	id = i;
+}
 
 
-// int Aluno::getId() {
-// 	return id;
-// }
+int Aluno::getId() {
+	return id;
+}
+
+void Aluno::informaProventos() {
+    cout << nomeP << " não possui proventos." << endl;
+}

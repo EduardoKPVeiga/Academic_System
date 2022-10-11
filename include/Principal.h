@@ -1,10 +1,12 @@
 #pragma once
 #include "Professor.h"
+#include "Estagiario.h"
 #include "lists/ListaDepartamentos.h"
 #include "lists/ListaDisciplinas.h"
-#include "lists/ListaAlunos.h"
 #include "lists/ListaUniversidades.h"
+#include "lists/ListaAlunos.h"
 #include "lists/Lista.h"
+#include "elements/Elemento.h"
 #include <time.h>
 #include <windows.h>
 
@@ -27,6 +29,8 @@ private:
 
   Aluno AAA, BBB, CCC, DDD, EEE;
 
+  Estagiario Fulano, Ciclano;
+
   ListaUniversidades LUniversidades;
   ListaDepartamentos LDepartamentos;
   ListaDisciplinas LDisciplinas;
@@ -48,6 +52,7 @@ public:
   void InicializaDepartamentos();
   void InicializaProfessores();
   void InicializaAlunos();
+  void InicializaEstagiarios();
   void InicializaDisciplinas();
 
   void Executar();
@@ -57,6 +62,7 @@ public:
   void DepOndeProfsTrabalham();
   void ListeDiscDeptos();
   void ListeAlunosDisc();
+  void ListeProventosPessoas();
   //void ListeDepPorUniv();
 
   void CadDisciplina();

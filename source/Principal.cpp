@@ -66,13 +66,39 @@ void Principal::Inicializa ( ) {
   InicializaDisciplinas();
 }
 
-void Principal::InicializaAlunos()
-{ 
+void Principal::InicializaAlunos() {
+  Pessoa* ponteiroPessoa = NULL;
+  Aluno* ponteiroAluno = NULL;
+
 	AAA.setNome	("AAA");
+  LAlunos.incluaAluno(&AAA, AAA.getNome());
+  ponteiroAluno = &AAA;
+  ponteiroPessoa = static_cast<Pessoa*>(ponteiroAluno);
+  LPessoas.incluaInfo(ponteiroPessoa, ponteiroPessoa->getNome());
+
 	BBB.setNome	("BBB");
+  LAlunos.incluaAluno(&BBB, BBB.getNome());
+  ponteiroAluno = &BBB;
+  ponteiroPessoa = static_cast<Pessoa*>(ponteiroAluno);
+  LPessoas.incluaInfo(ponteiroPessoa, ponteiroPessoa->getNome());
+
 	CCC.setNome	("CCC");
+  LAlunos.incluaAluno(&CCC, CCC.getNome());
+  ponteiroAluno = &CCC;
+  ponteiroPessoa = static_cast<Pessoa*>(ponteiroAluno);
+  LPessoas.incluaInfo(ponteiroPessoa, ponteiroPessoa->getNome());
+
 	DDD.setNome	("DDD");
+  LAlunos.incluaAluno(&DDD, DDD.getNome());
+  ponteiroAluno = &DDD;
+  ponteiroPessoa = static_cast<Pessoa*>(ponteiroAluno);
+  LPessoas.incluaInfo(ponteiroPessoa, ponteiroPessoa->getNome());
+
 	EEE.setNome	("EEE");
+  LAlunos.incluaAluno(&EEE, EEE.getNome());
+  ponteiroAluno = &EEE;
+  ponteiroPessoa = static_cast<Pessoa*>(ponteiroAluno);
+  LPessoas.incluaInfo(ponteiroPessoa, ponteiroPessoa->getNome());
 }
 
 void Principal::InicializaUniversidades() {
@@ -85,6 +111,24 @@ void Principal::InicializaUniversidades() {
 
   Cambridge.setNome("Cambridge");
   LUniversidades.incluaUniversidade( &Cambridge );
+}
+
+void Principal::InicializaEstagiarios() {
+  Pessoa* pPessoa;
+  Aluno* pAluno;
+  Estagiario* pEstagiario;
+
+  Fulano.setNome("Fulano");
+  Fulano.setBolsaEstudo(800);
+  pEstagiario = &Fulano;
+
+  pAluno = static_cast<Aluno*>(pEstagiario);
+  LAlunos.incluaAluno(pAluno, pAluno->getNome());
+
+  pPessoa = static_cast<Pessoa*>(pAluno);
+  LPessoas.incluaInfo(pAluno, pAluno->getNome());
+
+
 }
 
 void Principal::InicializaDepartamentos ( ) {
@@ -119,10 +163,20 @@ void Principal::InicializaDepartamentos ( ) {
 }
 
 void Principal::InicializaProfessores() {
+  Pessoa* pPessoa;
+  Professor* pProfessor;
+
   // Inicialização do(s) ojeto(s) da classe Professor
   Simao.Inicializa(3, 10, 1976, "Jean Simão");
   Einstein.Inicializa(14, 3, 1879, "Albert Einstein");
   Newton.Inicializa(4, 1, 1643, "Isaac Newton");
+
+  Simao.setBolsaProjeto(1000);
+  Simao.setSalario(4000);
+
+  Einstein.setSalario(25000);
+
+  Newton.setSalario(25000);
 
   // "Filiação" a universidade
   Simao.setUnivFiliado(&UTFPR);
@@ -133,6 +187,18 @@ void Principal::InicializaProfessores() {
   Simao.setDepartamento(&EletronicaUTFPR);
   Einstein.setDepartamento(&FisicaPrinceton);
   Newton.setDepartamento(&MatematicaCambridge);
+
+  pProfessor = &Simao;
+  pPessoa = static_cast<Pessoa*>(pProfessor);
+  LPessoas.incluaInfo(pPessoa, pPessoa->getNome());
+
+  pProfessor = &Einstein;
+  pPessoa = static_cast<Pessoa*>(pProfessor);
+  LPessoas.incluaInfo(pPessoa, pPessoa->getNome());
+
+  pProfessor = &Newton;
+  pPessoa = static_cast<Pessoa*>(pProfessor);
+  LPessoas.incluaInfo(pPessoa, pPessoa->getNome());
 }
 
 void Principal::InicializaDisciplinas() {
@@ -206,6 +272,19 @@ void Principal::ListeAlunosDisc() {
 //   printf ("\n");
 // }
 
+void Principal::ListeProventosPessoas() {
+  Elemento<Pessoa>* pElementoPessoa;
+  Pessoa* pPessoa;
+
+  pElementoPessoa = LPessoas.getpPrimeiro();
+
+  while(pElementoPessoa != NULL) {
+    pPessoa = pElementoPessoa->getInfo();
+    pPessoa->informaProventos();
+    pElementoPessoa = pElementoPessoa->getProximo();
+  }
+}
+
 void Principal::Executar() {
   // CalcIdadeProfs();
   // UnivOndeProfsTrabalham();
@@ -259,9 +338,10 @@ void Principal::CadUniversidade() {
 }
 
 void Principal::CadAluno() {
-  char	nomeAluno[150];
-	int		ra;
-	Aluno*	pal;
+  char nomeAluno[150];
+	int ra;
+	Aluno* pAluno;
+  Pessoa* pPessoa;
 
 	cout << "Qual o nome do aluno. " << endl;
 	cin  >> nomeAluno;
@@ -269,11 +349,14 @@ void Principal::CadAluno() {
 	cout << "Qual o RA do aluno."	<< endl;
 	cin  >> ra;
 
-  pal = new Aluno(cont_idAluno++);
-	pal->setNome(nomeAluno);
-	pal->setRA(ra);
+  pAluno = new Aluno(cont_idAluno++);
+	pAluno->setNome(nomeAluno);
+	pAluno->setRA(ra);
 
-	LAlunos.incluaAluno(pal);
+	LAlunos.incluaAluno(pAluno, pAluno->getNome());
+
+  pPessoa = static_cast<Pessoa*>(pAluno);
+  LPessoas.incluaInfo(pPessoa, pPessoa->getNome());
 }
 
 void Principal::GravarTudo() {
@@ -333,11 +416,11 @@ void Principal::MenuCad() {
 
   while(op != 4) {
     system("cls");
-    cout << "  Informe sua op��o:    "			<< endl;
+    cout << "  Informe sua opcao:    "			<< endl;
     cout << "  1 - Cadastrar Disciplina.  "		<< endl;
     cout << "  2 - Cadastrar Departamentos. "	<< endl;
     cout << "  3 - Cadastrar Universidade. "	<< endl;
-    cout << "  4 � Sair. "						<< endl;
+    cout << "  4 - Sair. "						<< endl;
     cin >> op;
 
     switch(op) {
@@ -354,7 +437,7 @@ void Principal::MenuCad() {
       break;
 
       default:{                      
-        cout << "Op��o Inv�lida - Pressione uma tecla." << endl;
+        cout << "Opcao Invalida - Pressione uma tecla." << endl;
         getchar();
       }
     }
@@ -363,45 +446,74 @@ void Principal::MenuCad() {
 
 void Principal::MenuExe() {
   int op = -1;
-    
-  while(op != 4) {
+
+  while(op != 7) {
 		system("cls");
-    cout << "  Informe sua op��o:		"	<< endl;
-    cout << "  1 - Listar Disciplinas.  "	<< endl;
+    cout << "  Informe sua opcao:"	<< endl;
+    cout << "  1 - Listar Disciplinas."	<< endl;
     cout << "  2 - Listar Departamentos."	<< endl;
-    cout << "  3 - Listar Universidade. "	<< endl;
-    cout << "  4 � Sair. "					<< endl;
+    cout << "  3 - Listar Universidade."	<< endl;
+    cout << "  4 - Listar Alunos." << endl;
+    cout << "  5 - Listar Professores." << endl;
+    cout << "  6 - Listar Pessoas." << endl;
+    cout << "  7 - Listar Proventos." << endl;
+    cout << "  8 - Sair." << endl;
     cin >> op;
 
     switch(op) {
 			case 1:  { 
-        LDisciplinas.listeDisciplinas(); getchar();
-        fflush(stdin);
-        getchar(); 	
+        // LDisciplinas.listeDisciplinas();
+        // fflush(stdin);
+        // getchar();
+
+        LDisciplinas.listeDisciplinas();
+        system("Pause");
       }
       break;
 
 			case 2:  { 
-        LDepartamentos.listeDepto(); getchar();
-        fflush(stdin);
-        getchar(); 
+        LDepartamentos.listeDepto();
+        system("Pause");
       }
       break;
 
 			case 3:  { 
         LUniversidades.listeUniversidades(); 
-        fflush(stdin);
-        getchar();
+        system("Pause");
       }
       break;
 
       case 4:  {
-        cout << " FIM " << endl;
+        LAlunos.listeAlunos();
+        system("Pause");
+      }
+      break;
+
+      case 5:  {
+        DepOndeProfsTrabalham();
+        system("Pause");
+      }
+      break;
+
+      case 6:  {
+        LPessoas.listeInfos();
+        system("Pause");
+      }
+      break;
+
+      case 7:  {
+        ListeProventosPessoas();
+        system("Pause");
+      }
+      break;
+
+      case 8: {
+        cout << "FIM." << endl;
       }
       break;
 
       default: { 
-        cout << "Op��o Inv�lida - Pressione uma tecla." << endl;
+        cout << "Opcao Invalida! Pressione uma tecla." << endl;
         getchar(); 
       }
     }

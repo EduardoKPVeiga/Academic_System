@@ -2,16 +2,21 @@
 
 Professor::Professor(int diaNa, int mesNa, int anoNa, const char* nome):
 Pessoa(diaNa, mesNa, anoNa, nome) {
-    pUnivFiliado = NULL;
-    pDptoFiliado = NULL;
+    inicializa();
 }
 
 Professor::Professor(): Pessoa() {
+    inicializa();
+}
+
+Professor::~Professor() {
     pUnivFiliado = NULL;
     pDptoFiliado = NULL;
 }
 
-Professor::~Professor() {
+void Professor::inicializa() {
+    salario = 0;
+    bolsa_projeto = 0;
     pUnivFiliado = NULL;
     pDptoFiliado = NULL;
 }
@@ -22,6 +27,26 @@ void Professor::setUnivFiliado(Universidade* pu) {
 
 void Professor::setDepartamento(Departamento *pdpto) {
     pDptoFiliado = pdpto;
+}
+
+void Professor::setSalario(float s) {
+    salario = s;
+}
+
+float Professor::getSalario() {
+    return salario;
+}
+
+void Professor::setBolsaProjeto(float b) {
+    bolsa_projeto = b;
+}
+
+float Professor::getBolsaProjeto() {
+    return bolsa_projeto;
+}
+
+void Professor::informaProventos() {
+    cout << "O valor dos proventos do prof. " << nomeP << " é " << (salario + bolsa_projeto) << endl;
 }
 
 void Professor::OndeTrabalha() {

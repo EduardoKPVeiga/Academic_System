@@ -29,7 +29,10 @@ public:
 /* ----- Gets and Sets -----*/
   void setId(int i){id = i;}
   int getId(){return id;}
+
   void setNome(char* n){strcpy(nomeP, n);}
   char* getNome(){return nomeP;}
+
+  virtual void informaProventos();
 
 };

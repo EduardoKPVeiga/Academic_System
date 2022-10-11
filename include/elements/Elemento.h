@@ -22,6 +22,9 @@ public:
     void setInfo(Elemento<TIPO>* pI);
     TIPO* getInfo();
 
+    void setNome(const char* n);
+    char* getNome();
+
 };
 
 template<class TIPO>
@@ -65,6 +68,16 @@ void Elemento<TIPO>::setInfo(Elemento<TIPO>* pI) {
 template<class TIPO>
 TIPO* Elemento<TIPO>::getInfo() {
     return pInfo;
+}
+
+template<class TIPO>
+void Elemento<TIPO>::setNome(const char* n) {
+    strcpy(nome, n);
+}
+
+template<class TIPO>
+char* Elemento<TIPO>::getNome() {
+    return nome;
 }
 
 #endif

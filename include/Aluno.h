@@ -14,12 +14,17 @@ public:
     Aluno();
     ~Aluno();
 
+    void setNome(const char* n);
+    char* getNome();
+
     void setRA(int ra = -1);
     int getRA();
 
     void setDepartamento(Departamento* d);
     Departamento* getDepartamento();
 
-    // void setId(int i);
-    // int getId();
+    void setId(int i);
+    int getId();
+
+    virtual void informaProventos();
 };

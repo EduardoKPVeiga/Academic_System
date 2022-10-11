@@ -49,3 +49,7 @@ void Pessoa::Calc_Imprime_Idade(int diaAT, int mesAT, int anoAT) {
 int Pessoa::informaIdade() {
   return idadeP;
 }
+
+void Pessoa::informaProventos() {
+  cout << nomeP << " não possui proventos." << endl;
+}

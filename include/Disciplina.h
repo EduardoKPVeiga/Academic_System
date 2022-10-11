@@ -1,7 +1,8 @@
 #pragma once
+
 #include "Departamento.h"
-#include "elements/ElAluno.h"
-#include "lists/ListaAlunos.h"
+#include "Aluno.h"
+#include "lists/Lista.h"
 
 class Disciplina {
 private:
@@ -11,7 +12,7 @@ private:
     // int numero_alunos;
     // int cont_alunos;
     Departamento* pDeptoAssociado;
-    ListaAlunos ObjLAlunos;
+    Lista<Aluno> ObjLAlunos;
     // ElAluno *pAlunoPrim;
     // ElAluno *pAlunoAtual;
 
@@ -37,5 +38,4 @@ public:
 
     void setAluno(Aluno* pa);
     void listeAlunos();
-    void listeAlunos2();
 };
