@@ -1,8 +1,9 @@
 #pragma once
 #include "Pessoa.h"
 #include "Universidade.h"
+#include "Conhecimento.h"
 
-class Professor : public Pessoa{
+class Professor : public Pessoa, public Conhecimento {
 private:
     Universidade* pUnivFiliado;
     Departamento* pDptoFiliado;
@@ -26,6 +27,7 @@ public:
     float getBolsaProjeto();
 
     void informaProventos();
+    void informaAntiguidade();
 
     void OndeTrabalha();
     void QualDepartamentoTrabalha();

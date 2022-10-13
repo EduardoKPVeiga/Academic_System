@@ -5,6 +5,7 @@
 #include "lists/ListaDisciplinas.h"
 #include "lists/ListaUniversidades.h"
 #include "lists/ListaAlunos.h"
+#include "lists/ListaPessoas.h"
 #include "lists/Lista.h"
 #include "elements/Elemento.h"
 #include <time.h>
@@ -35,8 +36,7 @@ private:
   ListaDepartamentos LDepartamentos;
   ListaDisciplinas LDisciplinas;
   ListaAlunos LAlunos;
-
-  Lista<Pessoa> LPessoas;
+  ListaPessoas LPessoas;
 
   int diaAtual;
   int mesAtual;
@@ -63,6 +63,7 @@ public:
   void ListeDiscDeptos();
   void ListeAlunosDisc();
   void ListeProventosPessoas();
+  void ConhecProfs();
   //void ListeDepPorUniv();
 
   void CadDisciplina();

@@ -74,31 +74,31 @@ void Principal::InicializaAlunos() {
   LAlunos.incluaAluno(&AAA, AAA.getNome());
   ponteiroAluno = &AAA;
   ponteiroPessoa = static_cast<Pessoa*>(ponteiroAluno);
-  LPessoas.incluaInfo(ponteiroPessoa, ponteiroPessoa->getNome());
+  LPessoas.incluaPessoa(ponteiroPessoa);
 
 	BBB.setNome	("BBB");
   LAlunos.incluaAluno(&BBB, BBB.getNome());
   ponteiroAluno = &BBB;
   ponteiroPessoa = static_cast<Pessoa*>(ponteiroAluno);
-  LPessoas.incluaInfo(ponteiroPessoa, ponteiroPessoa->getNome());
+  LPessoas.incluaPessoa(ponteiroPessoa);
 
 	CCC.setNome	("CCC");
   LAlunos.incluaAluno(&CCC, CCC.getNome());
   ponteiroAluno = &CCC;
   ponteiroPessoa = static_cast<Pessoa*>(ponteiroAluno);
-  LPessoas.incluaInfo(ponteiroPessoa, ponteiroPessoa->getNome());
+  LPessoas.incluaPessoa(ponteiroPessoa);
 
 	DDD.setNome	("DDD");
   LAlunos.incluaAluno(&DDD, DDD.getNome());
   ponteiroAluno = &DDD;
   ponteiroPessoa = static_cast<Pessoa*>(ponteiroAluno);
-  LPessoas.incluaInfo(ponteiroPessoa, ponteiroPessoa->getNome());
+  LPessoas.incluaPessoa(ponteiroPessoa);
 
 	EEE.setNome	("EEE");
   LAlunos.incluaAluno(&EEE, EEE.getNome());
   ponteiroAluno = &EEE;
   ponteiroPessoa = static_cast<Pessoa*>(ponteiroAluno);
-  LPessoas.incluaInfo(ponteiroPessoa, ponteiroPessoa->getNome());
+  LPessoas.incluaPessoa(ponteiroPessoa);
 }
 
 void Principal::InicializaUniversidades() {
@@ -126,9 +126,17 @@ void Principal::InicializaEstagiarios() {
   LAlunos.incluaAluno(pAluno, pAluno->getNome());
 
   pPessoa = static_cast<Pessoa*>(pAluno);
-  LPessoas.incluaInfo(pAluno, pAluno->getNome());
+  LPessoas.incluaPessoa(pAluno);
 
+  Ciclano.setNome	("Ciclano");
+	Ciclano.setBolsaEstudo(801);
+	pEstagiario	= &Ciclano;
 
+	pAluno  = static_cast<Aluno*>(pEstagiario);
+	LAlunos.incluaAluno(pAluno, pAluno->getNome());
+
+	pPessoa = static_cast<Pessoa*>(pAluno);
+	LPessoas.incluaPessoa(pPessoa);
 }
 
 void Principal::InicializaDepartamentos ( ) {
@@ -190,15 +198,19 @@ void Principal::InicializaProfessores() {
 
   pProfessor = &Simao;
   pPessoa = static_cast<Pessoa*>(pProfessor);
-  LPessoas.incluaInfo(pPessoa, pPessoa->getNome());
+  LPessoas.incluaPessoa(pPessoa);
 
   pProfessor = &Einstein;
   pPessoa = static_cast<Pessoa*>(pProfessor);
-  LPessoas.incluaInfo(pPessoa, pPessoa->getNome());
+  LPessoas.incluaPessoa(pPessoa);
 
   pProfessor = &Newton;
   pPessoa = static_cast<Pessoa*>(pProfessor);
-  LPessoas.incluaInfo(pPessoa, pPessoa->getNome());
+  LPessoas.incluaPessoa(pPessoa);
+
+  Simao.setDominio("Computação");
+  Einstein.setDominio("Física");
+  Newton.setDominio("Matemática-Física");
 }
 
 void Principal::InicializaDisciplinas() {
@@ -273,16 +285,13 @@ void Principal::ListeAlunosDisc() {
 // }
 
 void Principal::ListeProventosPessoas() {
-  Elemento<Pessoa>* pElementoPessoa;
-  Pessoa* pPessoa;
+  LPessoas. listaProventos();
+}
 
-  pElementoPessoa = LPessoas.getpPrimeiro();
-
-  while(pElementoPessoa != NULL) {
-    pPessoa = pElementoPessoa->getInfo();
-    pPessoa->informaProventos();
-    pElementoPessoa = pElementoPessoa->getProximo();
-  }
+void Principal::ConhecProfs() {
+  cout << "Simão: " << Simao.getDominio() << endl;
+  cout << "Einstein: " << Einstein.getDominio() << endl;
+  cout << "Newton: " << Newton.getDominio() << endl << endl;
 }
 
 void Principal::Executar() {
@@ -356,7 +365,7 @@ void Principal::CadAluno() {
 	LAlunos.incluaAluno(pAluno, pAluno->getNome());
 
   pPessoa = static_cast<Pessoa*>(pAluno);
-  LPessoas.incluaInfo(pPessoa, pPessoa->getNome());
+  LPessoas.incluaPessoa(pPessoa);
 }
 
 void Principal::GravarTudo() {
@@ -496,7 +505,7 @@ void Principal::MenuExe() {
       break;
 
       case 6:  {
-        LPessoas.listeInfos();
+        LPessoas.listePessoas();
         system("Pause");
       }
       break;

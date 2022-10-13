@@ -49,6 +49,10 @@ void Professor::informaProventos() {
     cout << "O valor dos proventos do prof. " << nomeP << " é " << (salario + bolsa_projeto) << endl;
 }
 
+void Professor::informaAntiguidade() {
+    cout << "Idade do prof. " << nomeP << ": " << idadeP << endl;
+}
+
 void Professor::OndeTrabalha() {
     cout << nomeP << " trabalha para a " << pUnivFiliado->getNome() << endl;
 }
