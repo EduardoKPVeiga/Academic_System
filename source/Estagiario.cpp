@@ -1,6 +1,6 @@
 #include "../include/Estagiario.h" 
 
-Estagiario::Estagiario (int diaNa, int mesNa, int anoNa, char* nome):
+Estagiario::Estagiario (int diaNa, int mesNa, int anoNa, const char* nome):
 Aluno (diaNa, mesNa, anoNa, nome) {
 	inicializa();
 }

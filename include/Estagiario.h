@@ -9,7 +9,7 @@ protected:
   float BolsaEstudo;
 
 public:
-  Estagiario (int diaNa, int mesNa, int anoNa, char* nome = "");
+  Estagiario (int diaNa, int mesNa, int anoNa, const char* nome = "");
   Estagiario();
   ~Estagiario();
 

@@ -21,8 +21,8 @@ public:
     void inicializa();
 
     bool incluaElemento(Elemento<TIPO>* pElemento);
-    bool incluaInfo(TIPO* pInfo, const char* nome);
-    bool incluaInfo(TIPO* pInfo);
+    bool incluaInfo(TIPO* pInfo, const char* nome = "");
+    //bool incluaInfo(TIPO* pInfo);
     void listeInfos();
 
     void setNome(const char* n);
@@ -113,6 +113,7 @@ bool Lista<TIPO>::incluaInfo(TIPO *pInfo, const char* nome) {
     }
 }
 
+/*
 template<class TIPO>
 bool Lista<TIPO>::incluaInfo(TIPO *pInfo) {
     if(NULL != pInfo) {
@@ -128,6 +129,7 @@ bool Lista<TIPO>::incluaInfo(TIPO *pInfo) {
         return false;
     }
 }
+*/
 
 template<class TIPO>
 void Lista<TIPO>::listeInfos() {

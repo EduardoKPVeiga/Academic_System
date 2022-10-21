@@ -19,7 +19,7 @@ public:
     void setAnterior(Elemento<TIPO>* pA);
     Elemento<TIPO>* getAnterior();
 
-    void setInfo(Elemento<TIPO>* pI);
+    void setInfo(TIPO* pI);
     TIPO* getInfo();
 
     void setNome(const char* n);
@@ -35,33 +35,34 @@ Elemento<TIPO>::Elemento() {
 }
 
 template<class TIPO>
-Elemento<class TIPO>::~Elemento() {
+Elemento<TIPO>::~Elemento() {
     pAnterior = NULL;
     pProximo = NULL;
     pInfo = NULL;
 }
 
 template<class TIPO>
-void Elemento<class TIPO>::setProximo(Elemento<class TIPO>* pP) {
+void Elemento<TIPO>::setProximo(Elemento<TIPO>* pP) {
     pProximo = pP;
 }
 
 template<class TIPO>
-Elemento<class TIPO>* Elemento<class TIPO>::getProximo() {
+Elemento<TIPO>* Elemento<TIPO>::getProximo() {
     return pProximo;
 }
 
 template<class TIPO>
-void Elemento<class TIPO>::setAnterior(Elemento<class TIPO>* pA) {
+void Elemento<TIPO>::setAnterior(Elemento<TIPO>* pA) {
     pAnterior = pA;
 }
 
-Elemento<class TIPO>* Elemento<class TIPO>::getAnterior() {
+template<class TIPO>
+Elemento<TIPO>* Elemento<TIPO>::getAnterior() {
     return pAnterior;
 }
 
 template<class TIPO>
-void Elemento<TIPO>::setInfo(Elemento<TIPO>* pI) {
+void Elemento<TIPO>::setInfo(TIPO* pI) {
     pInfo = pI;
 }
 

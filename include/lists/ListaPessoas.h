@@ -6,7 +6,12 @@
 
 class ListaPessoas {
 private:
+    Lista<Pessoa> LTPessoa;
 
 public:
-
+    ListaPessoas();
+    virtual ~ListaPessoas();
+    void incluaPessoa(Pessoa* pa);
+    void listePessoas();
+    void listaProventos();
 };
